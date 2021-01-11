@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class TicTacToe {
 
    private static final int SIZE =3;
+   private static final int DOTS_TO_WIN = 4;
    private static final char[][] map = new char[SIZE][SIZE];
 
    private static final char DOT_EMPTY = '•';
@@ -60,23 +61,51 @@ public class TicTacToe {
         return true;
     }
 
+
     private static boolean checkWin(char symbol) {
-        //check rows
-        if (map[0][0] == symbol && map[0][1] == symbol && map[0][2] == symbol) return true;
-        if (map[1][0] == symbol && map[1][1] == symbol && map[1][2] == symbol) return true;
-        if (map[2][0] == symbol && map[2][1] == symbol && map[2][2] == symbol) return true;
+        if (checkRowsAndCols(symbol)) return true;
+        return checkDiagonals(symbol);
+    }
 
-        //check cols
-        if (map[0][0]== symbol && map[1][0] == symbol && map[2][0] == symbol) return true;
-        if (map[0][1]== symbol && map[1][1] == symbol && map[2][1] == symbol) return true;
-        if (map[0][2]== symbol && map[1][2] == symbol && map[2][2] == symbol) return true;
-
-        //check diagonals   в дз исправить все на цикл все три проверки в лекции 2:01 есть задание
-        if (map[0][0] == symbol && map[1][1] == symbol && map[2][2] == symbol) return true;
-        if (map[0][2] == symbol && map[1][1] == symbol && map[2][0] == symbol) return true;
-
+    private static boolean checkDiagonals(char symbol) {
+        int x = 0;
+        int z = 0;
+        for (int i = 0; i < SIZE; i++) {
+            x = (map[i][i] == symbol) ? x + 1 : 0;
+            z = (map[i][map.length - 1 - i] == symbol) ? z + 1 : 0;
+            if (x == DOTS_TO_WIN || z == DOTS_TO_WIN){
+                return true;
+            }
+        }
         return false;
     }
+
+
+    private static boolean checkRowsAndCols(char symbol) {
+        for (int i = 0; i < SIZE; i++) {
+            int x = 0;
+            int z = 0;
+            for (int j = 0; j < SIZE; j++) {
+                x = (map[i][j] == symbol) ? x + 1 : 0;
+                z = (map[j][i] == symbol) ? z + 1 : 0;
+                if (x == DOTS_TO_WIN || z == DOTS_TO_WIN){
+                    return true;
+                }
+
+            }
+
+        }
+        return false;
+
+
+    }
+    
+    
+    
+        
+        
+    
+
 
     private static void humanTurn() {
         int rowIndex = -1;
@@ -174,3 +203,24 @@ public class TicTacToe {
 }
 
 
+
+
+
+
+    //   {
+    //           //check rows
+    //           if (map[0][0] == symbol && map[0][1] == symbol && map[0][2] == symbol) return true;
+    //           if (map[1][0] == symbol && map[1][1] == symbol && map[1][2] == symbol) return true;
+    //           if (map[2][0] == symbol && map[2][1] == symbol && map[2][2] == symbol) return true;
+
+    //           //check cols
+    //           if (map[0][0]== symbol && map[1][0] == symbol && map[2][0] == symbol) return true;
+    //           if (map[0][1]== symbol && map[1][1] == symbol && map[2][1] == symbol) return true;
+    //           if (map[0][2]== symbol && map[1][2] == symbol && map[2][2] == symbol) return true;
+
+    //           //check diagonals   в дз исправить все на цикл все три проверки в лекции 2:01 есть задание
+    //           if (map[0][0] == symbol && map[1][1] == symbol && map[2][2] == symbol) return true;
+    //           if (map[0][2] == symbol && map[1][1] == symbol && map[2][0] == symbol) return true;
+
+    //           return false;
+    //           }

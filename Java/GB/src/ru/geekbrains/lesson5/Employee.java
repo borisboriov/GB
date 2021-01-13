@@ -9,7 +9,7 @@ public class Employee {
     private String tel;
     private int salary;
     private int age;
-
+    private static final int MAX_AGE = 40;
 
     public Employee(String fio, String position, String email, String tel, int salary, int age){
         this.fio = fio;
@@ -20,30 +20,41 @@ public class Employee {
         this.age = age;
     }
 
+    public String getFio() {
+        return fio;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public static int getMaxAge() {
+        return MAX_AGE;
+    }
+
     public void info() {
-            System.out.println("fio: " + fio + "; Должность: " + position+ "; Почта: " +
-            email + "; Телефон: " + tel + "; Зарплата: " + salary);
+            System.out.println("fio: " + this.getFio() + "; Должность: " + this.getPosition() + "; Почта: " +
+            this.getEmail() + "; Телефон: " + this.getTel() + "; Зарплата: " + this.getSalary());
     }
 
 
-    public static void main(String[] args) {
 
-        Employee[] persArray = new Employee[5];
-        persArray[0] = new Employee("Ivanov Ivan Ivanovich", "SEO", "ivanov@class.com", "94756", 100000, 42);
-        persArray[1] = new Employee("Petrov Petr Petrovich", "Account", "petrov@class.com", "34432", 50000, 30);
-        persArray[2] = new Employee("Hudo Gavrila Sanich ", "Finance", "hudo@class.com", "43333", 90000, 45);
-        persArray[3] = new Employee("Puzo Ostap Gavrilich ", "Group head", "puzo@class.com", "44444", 45000, 29);
-        persArray[4] = new Employee("Kapusta Lev Durindich", "engineer", "kapusta@class.com", "12312", 47000, 28);
-
-
-        for (int i = 0; i < persArray.length; i++) {
-            if (persArray[i].age > 40){
-                System.out.println(persArray[i].fio + " Сотрудник старше 40 лет" );
-
-            }
-        }
-
-    }
 
 
 

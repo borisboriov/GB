@@ -1,0 +1,30 @@
+package ru.geekbrains.Lesson9.model;
+
+public class Cat {
+
+    protected String name;
+    protected int jumpLimit;
+    protected int runLimit;
+
+    public Cat(String name, int jumpLimit, int runLimit){
+        this.name = name;
+        this.jumpLimit = jumpLimit;
+        this.runLimit = runLimit;
+    }
+
+    public void run(){
+        System.out.println("Кот пробежал");
+    }
+    public void jump(){
+        System.out.println("Кот перепрыгнул");
+    }
+
+    @Override
+    public String toString() {
+        return "Cat{" +
+                "name='" + name + '\'' +
+                ", jumpLimit=" + jumpLimit +
+                ", runLimit=" + runLimit +
+                '}';
+    }
+}

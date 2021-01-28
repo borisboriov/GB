@@ -19,6 +19,18 @@ public class Robot {
         System.out.println("Робот перепрыгнул");
     }
 
+    public int getJumpLimit() {
+        return jumpLimit;
+    }
+
+    public int getRunLimit() {
+        return runLimit;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
         return "Robot{" +

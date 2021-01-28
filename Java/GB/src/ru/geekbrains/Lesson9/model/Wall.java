@@ -6,10 +6,13 @@ public class Wall {
 
     Random random = new Random();
 
-    protected int length;
+    protected int high;
 
     public Wall(){
-        this.length = random.nextInt(3);
+        this.high = random.nextInt(3);
     }
 
+    public int getHigh() {
+        return high;
+    }
 }

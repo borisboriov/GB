@@ -12,6 +12,17 @@ public class Human {
         this.runLimit = runLimit;
     }
 
+    public int getJumpLimit() {
+        return jumpLimit;
+    }
+
+    public int getRunLimit() {
+        return runLimit;
+    }
+
+    public String getName() {
+        return name;
+    }
 
     public void run(){
         System.out.println("Человек пробежал");

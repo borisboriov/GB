@@ -12,4 +12,7 @@ public class Treadmill {
         this.length = random.nextInt(400);
     }
 
+    public int getLength() {
+        return length;
+    }
 }

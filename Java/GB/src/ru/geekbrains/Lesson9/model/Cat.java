@@ -19,6 +19,18 @@ public class Cat {
         System.out.println("Кот перепрыгнул");
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getRunLimit() {
+        return runLimit;
+    }
+
+    public int getJumpLimit() {
+        return jumpLimit;
+    }
+
     @Override
     public String toString() {
         return "Cat{" +

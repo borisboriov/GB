@@ -25,28 +25,28 @@ public class Dinner {
     }
 
     private static void dinner(Cat[] cats, Plate plate) {
-            for (Cat cat : cats) {
-                if (!cat.satiety) {
-                    cat.eat(plate);
-                    System.out.println(cat.name + "  сыт? " + cat.satiety);
-                    System.out.println();
-                }
+        for (Cat cat : cats) {
+            if (!cat.satiety) {
+                cat.eat(plate);
+                System.out.println(cat.name + "  сыт? " + cat.satiety);
+                System.out.println();
             }
-
         }
 
-  public static boolean ifCatHungry(Cat[] cats, Plate plate){
-      for (Cat cat : cats ) {
-          if (!cat.satiety){
-              System.out.println("Остались голодные коты");
-              addFood(plate);
-          }
-          return false;
-      }
-      return true;
-  }
+    }
 
-    public static void  addFood(Plate plate){
+    public static boolean ifCatHungry(Cat[] cats, Plate plate) {
+        for (Cat cat : cats) {
+            if (!cat.satiety) {
+                System.out.println("Остались голодные коты");
+                addFood(plate);
+            }
+            return false;
+        }
+        return true;
+    }
+
+    public static void addFood(Plate plate) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Добавьте еды: ");
         int foodCount = scanner.nextInt();

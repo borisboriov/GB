@@ -1,20 +1,19 @@
 package ru.geekbrains.lesson4;
 
-
 import java.util.Random;
 import java.util.Scanner;
 
 public class TicTacToe {
 
-   private static final int SIZE =3;
-   private static final int DOTS_TO_WIN = 4;
-   private static final char[][] map = new char[SIZE][SIZE];
+    private static final int SIZE =3;
+    private static final int DOTS_TO_WIN = 3;
+    private static final char[][] map = new char[SIZE][SIZE];
 
-   private static final char DOT_EMPTY = '•';
-   private static final char DOT_X = 'X';
-   private static final char DOT_O = 'O';
+    private static final char DOT_EMPTY = '•';
+    private static final char DOT_X = 'X';
+    private static final char DOT_O = 'O';
 
-   public static final Scanner SCANNER = new Scanner(System.in);
+    public static final Scanner SCANNER = new Scanner(System.in);
 
 
     public static void main(String[] args) {
@@ -99,12 +98,12 @@ public class TicTacToe {
 
 
     }
-    
-    
-    
-        
-        
-    
+
+
+
+
+
+
 
 
     private static void humanTurn() {
@@ -136,8 +135,8 @@ public class TicTacToe {
         int colIndex = -1;
         Random rand = new Random();
         do {
-             rowIndex = rand.nextInt(SIZE);
-             colIndex = rand.nextInt(SIZE);
+            rowIndex = rand.nextInt(SIZE);
+            colIndex = rand.nextInt(SIZE);
         } while (!isCellValid(rowIndex, colIndex, DOT_O));
 
         map[rowIndex][colIndex] = DOT_O;
@@ -147,14 +146,14 @@ public class TicTacToe {
         if (!isArrayIndexValid(rowIndex) || !isArrayIndexValid(colIndex)) {
             System.out.println("Идексы строки и колонки должны быть в диапозоне от 0 до " + SIZE);
             return false;
-            }
+        }
 
         if (map[rowIndex][colIndex] != DOT_EMPTY){
             if (isHumanTurn(symbol)){
                 System.out.println("Данная ячейка уже занята!");
             }
             return false;
-            }
+        }
         return true;
     }
 
@@ -201,26 +200,3 @@ public class TicTacToe {
     }
 
 }
-
-
-
-
-
-
-    //   {
-    //           //check rows
-    //           if (map[0][0] == symbol && map[0][1] == symbol && map[0][2] == symbol) return true;
-    //           if (map[1][0] == symbol && map[1][1] == symbol && map[1][2] == symbol) return true;
-    //           if (map[2][0] == symbol && map[2][1] == symbol && map[2][2] == symbol) return true;
-
-    //           //check cols
-    //           if (map[0][0]== symbol && map[1][0] == symbol && map[2][0] == symbol) return true;
-    //           if (map[0][1]== symbol && map[1][1] == symbol && map[2][1] == symbol) return true;
-    //           if (map[0][2]== symbol && map[1][2] == symbol && map[2][2] == symbol) return true;
-
-    //           //check diagonals   в дз исправить все на цикл все три проверки в лекции 2:01 есть задание
-    //           if (map[0][0] == symbol && map[1][1] == symbol && map[2][2] == symbol) return true;
-    //           if (map[0][2] == symbol && map[1][1] == symbol && map[2][0] == symbol) return true;
-
-    //           return false;
-    //           }
